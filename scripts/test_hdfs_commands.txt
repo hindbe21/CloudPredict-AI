@@ -1,0 +1,10 @@
+# Exécuter ces commandes dans PowerShell, depuis la racine du dépôt :
+docker compose -f infra/hadoop/compose.hdfs.yml config
+docker compose -f infra/hadoop/compose.hdfs.yml up -d
+docker compose -f infra/hadoop/compose.hdfs.yml ps
+docker compose -f infra/hadoop/compose.hdfs.yml exec namenode hdfs dfsadmin -report
+docker compose -f infra/hadoop/compose.hdfs.yml exec namenode hdfs getconf -confKey dfs.replication
+docker compose -f infra/hadoop/compose.hdfs.yml exec namenode sh -c 'echo cloudpredict-hdfs > /tmp/hdfs-test.txt'
+docker compose -f infra/hadoop/compose.hdfs.yml exec namenode hdfs dfs -mkdir -p /cloudpredict/test
+docker compose -f infra/hadoop/compose.hdfs.yml exec namenode hdfs dfs -put -f /tmp/hdfs-test.txt /cloudpredict/test/hdfs-test.txt
+docker compose -f infra/hadoop/compose.hdfs.yml exec namenode hdfs fsck /cloudpredict/test/hdfs-test.txt -files -blocks -locations
