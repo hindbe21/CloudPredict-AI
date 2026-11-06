@@ -1,4 +1,5 @@
 /data/raw/
+/data/data_Q4_2025/
 kafka/data/
 kafka/producer/.venv/
 __pycache__/

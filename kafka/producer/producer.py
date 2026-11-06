@@ -26,8 +26,16 @@ def convert(row):
 
 
 def iter_rows(path: Path):
-    """Lit un CSV ou un ZIP (tous les CSV dedans) en streaming."""
-    if path.suffix.lower() == ".zip":
+    """Lit un CSV, un ZIP ou les CSV d'un dossier en streaming."""
+    if path.is_dir():
+        paths = sorted(p for p in path.rglob("*")
+                       if p.is_file() and p.suffix.lower() == ".csv"
+                       and "__MACOSX" not in p.parts)
+        if not paths:
+            raise ValueError(f"Aucun CSV trouve dans {path}")
+        for csv_path in paths:
+            yield from iter_rows(csv_path)
+    elif path.suffix.lower() == ".zip":
         with zipfile.ZipFile(path) as zf:
             names = sorted(n for n in zf.namelist()
                            if n.endswith(".csv") and not n.startswith("__MACOSX"))
@@ -41,7 +49,7 @@ def iter_rows(path: Path):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--file", required=True)
+    ap.add_argument("--file", required=True, help="Chemin d'un CSV, ZIP ou dossier de CSV")
     ap.add_argument("--limit", type=int, default=100, help="0 = tout envoyer")
     ap.add_argument("--bootstrap", default="localhost:9092")
     ap.add_argument("--delay", type=float, default=0.0, help="pause entre messages (s)")
