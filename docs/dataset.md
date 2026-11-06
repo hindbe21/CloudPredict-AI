@@ -6,13 +6,20 @@ Backblaze Drive Stats : https://www.backblaze.com/cloud-storage/resources/hard-d
 
 Backblaze publie des archives ZIP, contenant des fichiers CSV de relevés quotidiens des disques ; une ligne correspond à un disque à une date donnée.
 
+
 ## Périmètre retenu
 
-- Année / trimestre : **À renseigner après téléchargement**
-- Nom de l'archive ZIP : **À renseigner**
-- Taille de l'archive : **À renseigner**
-- Nombre de fichiers CSV : **À renseigner**
-- Nombre de lignes : **À mesurer / renseigner**
+- **Source :** Backblaze Hard Drive Test Data
+- **Année / trimestre :** 2025 — Q4
+- **Nom de l'archive ZIP :** `data_Q4_2025.zip`
+- **Taille de l'archive :** 1,16 Go (1 157 851 346 octets)
+- **Nombre de fichiers CSV :** 92
+- **Nombre de colonnes :** 197 par fichier CSV
+- **Nombre total de lignes :** non calculé à ce stade
+
+Les 92 fichiers CSV ont été vérifiés et présentent des en-têtes identiques. Les données contiennent notamment les attributs SMART des disques durs et la variable `failure`.
+
+Le dataset original est conservé localement dans `data/raw/` et n'est pas envoyé sur GitHub en raison de sa taille.
 
 ## Colonnes utiles
 
