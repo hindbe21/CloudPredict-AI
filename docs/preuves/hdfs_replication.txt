@@ -1,0 +1,41 @@
+﻿FSCK started by root (auth:SIMPLE) from /172.19.0.3 for path /cloudpredict/tests/cloudpredict-test.txt at Fri Nov 06 14:26:01 UTC 2026
+/cloudpredict/tests/cloudpredict-test.txt 23 bytes, replicated: replication=2, 1 block(s):  OK
+0. BP-2090038690-172.19.0.2-1793971829410:blk_1073741825_1001 len=23 Live_repl=2  [DatanodeInfoWithStorage[172.19.0.2:9866,DS-7e5a5144-857b-4864-906c-6372d03e3bcb,DISK], DatanodeInfoWithStorage[172.19.0.4:9866,DS-4a6767b5-3a4f-43cc-a0c9-b855848ff6bc,DISK]]
+
+
+Status: HEALTHY
+ Number of data-nodes:	2
+ Number of racks:		1
+ Total dirs:			0
+ Total symlinks:		0
+
+Replicated Blocks:
+ Total size:	23 B
+ Total files:	1
+ Total blocks (validated):	1 (avg. block size 23 B)
+ Minimally replicated blocks:	1 (100.0 %)
+ Over-replicated blocks:	0 (0.0 %)
+ Under-replicated blocks:	0 (0.0 %)
+ Mis-replicated blocks:		0 (0.0 %)
+ Default replication factor:	2
+ Average block replication:	2.0
+ Missing blocks:		0
+ Corrupt blocks:		0
+ Missing replicas:		0 (0.0 %)
+
+Erasure Coded Block Groups:
+ Total size:	0 B
+ Total files:	0
+ Total block groups (validated):	0
+ Minimally erasure-coded block groups:	0
+ Over-erasure-coded block groups:	0
+ Under-erasure-coded block groups:	0
+ Unsatisfactory placement block groups:	0
+ Average block group size:	0.0
+ Missing block groups:		0
+ Corrupt block groups:		0
+ Missing internal blocks:	0
+FSCK ended at Fri Nov 06 14:26:01 UTC 2026 in 8 milliseconds
+
+
+The filesystem under path '/cloudpredict/tests/cloudpredict-test.txt' is HEALTHY

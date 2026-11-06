@@ -1,0 +1,58 @@
+# Déploiement HDFS INDÉPENDANT pour les tests du membre 2.
+# Au moment de l'intégration, réutiliser ces paramètres dans le Compose commun.
+name: cloudpredict-hdfs-dev
+
+services:
+  namenode:
+    image: bde2020/hadoop-namenode:2.0.0-hadoop3.2.1-java8
+    hostname: namenode
+    environment:
+      CLUSTER_NAME: cloudpredict-hdfs
+    env_file:
+      - ./hadoop.env
+    volumes:
+      - hdfs_namenode:/hadoop/dfs/name
+    ports:
+      - "127.0.0.1:9870:9870"
+    networks:
+      - hdfs-network
+    restart: unless-stopped
+
+  datanode1:
+    image: bde2020/hadoop-datanode:2.0.0-hadoop3.2.1-java8
+    hostname: datanode1
+    env_file:
+      - ./hadoop.env
+    environment:
+      SERVICE_PRECONDITION: namenode:9870
+    volumes:
+      - hdfs_datanode1:/hadoop/dfs/data
+    depends_on:
+      - namenode
+    networks:
+      - hdfs-network
+    restart: unless-stopped
+
+  datanode2:
+    image: bde2020/hadoop-datanode:2.0.0-hadoop3.2.1-java8
+    hostname: datanode2
+    env_file:
+      - ./hadoop.env
+    environment:
+      SERVICE_PRECONDITION: namenode:9870
+    volumes:
+      - hdfs_datanode2:/hadoop/dfs/data
+    depends_on:
+      - namenode
+    networks:
+      - hdfs-network
+    restart: unless-stopped
+
+networks:
+  hdfs-network:
+    driver: bridge
+
+volumes:
+  hdfs_namenode:
+  hdfs_datanode1:
+  hdfs_datanode2:
