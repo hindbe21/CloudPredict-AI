@@ -16,6 +16,8 @@ services:
       - "7077:7077"
     volumes:
       - ./infra/spark:/opt/project/spark:ro
+      - ./streaming:/opt/project/streaming:ro
+      - ./batch:/opt/project/batch:ro
     networks:
       - cloudpredict-net
 
@@ -144,6 +146,19 @@ services:
     environment:
       KAFKA_CLUSTERS_0_NAME: cloudpredict
       KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:29092
+
+  producer:
+    profiles: ["ingestion"]
+    build:
+      context: ./kafka/producer
+    volumes:
+      - ./data:/data:ro
+    networks:
+      - cloudpredict-net
+    depends_on:
+      kafka-init:
+        condition: service_completed_successfully
+    command: ["--bootstrap", "kafka:29092", "--file", "/data/data_Q4_2025", "--every", "60", "--limit", "0"]
 
 networks:
   cloudpredict-net:
