@@ -17,6 +17,7 @@ services:
     volumes:
       - ./infra/spark:/opt/project/spark:ro
       - ./streaming:/opt/project/streaming:ro
+      - ./batch:/opt/project/batch:ro
     networks:
       - cloudpredict-net
 
