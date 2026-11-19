@@ -16,6 +16,7 @@ services:
       - "7077:7077"
     volumes:
       - ./infra/spark:/opt/project/spark:ro
+      - ./streaming:/opt/project/streaming:ro
     networks:
       - cloudpredict-net
 
