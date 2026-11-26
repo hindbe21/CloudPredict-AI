@@ -1,0 +1,13 @@
+VALIDATION : 1075014 lignes, 206 positives, 39 disques positifs
+RECHARGEMENT logistic_regression : OK (20 predictions sans la cible)
+CONTROLE logistic_regression : 1075014 lignes, 206 positives, OK
+RECHARGEMENT random_forest : OK (20 predictions sans la cible)
+CONTROLE random_forest : 1075014 lignes, 206 positives, OK
+RECHARGEMENT gbt : OK (20 predictions sans la cible)
+CONTROLE gbt : 1075014 lignes, 206 positives, OK
+=== COMPARAISON SUR VALIDATION (seuil par defaut) ===
+modele=baseline_toujours_0 | accuracy=0.999808 | precision=0.000000 | rappel=0.000000 | f1=0.000000 | roc_auc=0.500000 | pr_auc=0.000192 | tn=1074808 | fp=0 | fn=206 | tp=0 | disques_detectes=0/39
+modele=logistic_regression | accuracy=0.929411 | precision=0.001699 | rappel=0.626214 | f1=0.003388 | roc_auc=0.768640 | pr_auc=0.024986 | tn=999001 | fp=75807 | fn=77 | tp=129 | disques_detectes=25/39
+modele=random_forest | accuracy=0.970143 | precision=0.003023 | rappel=0.470874 | f1=0.006008 | roc_auc=0.788758 | pr_auc=0.004039 | tn=1042820 | fp=31988 | fn=109 | tp=97 | disques_detectes=20/39
+modele=gbt | accuracy=0.938161 | precision=0.001684 | rappel=0.543689 | f1=0.003358 | roc_auc=0.760912 | pr_auc=0.003069 | tn=1008424 | fp=66384 | fn=94 | tp=112 | disques_detectes=23/39
+Resultats enregistres dans hdfs://namenode:9000/cloudpredict/ml/livrable3/zohra/validation_comparison

@@ -1,0 +1,22 @@
+Pipeline final enregistre dans hdfs://namenode:9000/cloudpredict/models/failure_prediction/v1/pipeline
+RECHARGEMENT OK : seuil=0.99 regParam=0.01 elasticNet=0.5
+CONTROLE : 1075014 lignes evaluees sur 1075014 OK
+RESULTAT split = validation
+RESULTAT seuil = 0.99
+RESULTAT lignes = 1075014
+RESULTAT accuracy = 0.995326572491149
+RESULTAT precision = 0.010166734444896299
+RESULTAT rappel = 0.24271844660194175
+RESULTAT f1 = 0.019516003122560497
+RESULTAT f2 = 0.04353883664228491
+RESULTAT roc_auc = 0.7612582424294635
+RESULTAT pr_auc = 0.03849051179319205
+RESULTAT tn = 1069940
+RESULTAT fp = 4868
+RESULTAT fn = 156
+RESULTAT tp = 50
+RESULTAT disques_total = 67631
+RESULTAT disques_positifs = 39
+RESULTAT disques_detectes = 11
+RESULTAT disques_en_fausse_alerte = 328
+Resultats enregistres dans hdfs://namenode:9000/cloudpredict/ml/livrable3/zohra/final/validation

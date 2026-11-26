@@ -1,0 +1,19 @@
+POIDS : positif=2391.537037 negatif=0.500105
+GRILLE regParam=0.01 elasticNet=0.0 | pr_auc=0.024176 roc_auc=0.778065
+GRILLE regParam=0.01 elasticNet=0.5 | pr_auc=0.038491 roc_auc=0.761258
+GRILLE regParam=0.1 elasticNet=0.0 | pr_auc=0.024986 roc_auc=0.768640
+GRILLE regParam=0.1 elasticNet=0.5 | pr_auc=0.026359 roc_auc=0.781436
+GRILLE regParam=1.0 elasticNet=0.0 | pr_auc=0.021421 roc_auc=0.764544
+GRILLE regParam=1.0 elasticNet=0.5 | pr_auc=0.006069 roc_auc=0.747243
+MEILLEUR regParam=0.01 elasticNet=0.5 pr_auc=0.038491 roc_auc=0.761258
+SEUIL 0.435548 | alertes=109360 tp=129 fp=109231 fn=77 precision=0.001180 rappel=0.626214 f1=0.002355 f2=0.005854 disques=25/39
+SEUIL 0.500000 | alertes=85720 tp=128 fp=85592 fn=78 precision=0.001493 rappel=0.621359 f1=0.002979 f2=0.007395 disques=24/39
+SEUIL 0.700000 | alertes=57510 tp=98 fp=57412 fn=108 precision=0.001704 rappel=0.475728 f1=0.003396 f2=0.008400 disques=18/39
+SEUIL 0.900000 | alertes=11684 tp=53 fp=11631 fn=153 precision=0.004536 rappel=0.257282 f1=0.008915 f2=0.021186 disques=11/39
+SEUIL 0.919775 | alertes=10763 tp=53 fp=10710 fn=153 precision=0.004924 rappel=0.257282 f1=0.009664 f2=0.022870 disques=11/39
+SEUIL 0.950000 | alertes=8979 tp=51 fp=8928 fn=155 precision=0.005680 rappel=0.247573 f1=0.011105 f2=0.026012 disques=11/39
+SEUIL 0.990000 | alertes=4918 tp=50 fp=4868 fn=156 precision=0.010167 rappel=0.242718 f1=0.019516 f2=0.043539 disques=11/39
+SEUIL 0.999298 | alertes=1074 tp=8 fp=1066 fn=198 precision=0.007449 rappel=0.038835 f1=0.012500 f2=0.021075 disques=2/39
+SEUIL 0.999961 | alertes=112 tp=8 fp=104 fn=198 precision=0.071429 rappel=0.038835 f1=0.050314 f2=0.042735 disques=2/39
+SEUIL PROPOSE (meilleur F2) : 0.990000
+Pipeline optimise enregistre dans hdfs://namenode:9000/cloudpredict/ml/livrable3/zohra/tuned_logistic
