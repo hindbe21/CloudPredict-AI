@@ -70,3 +70,14 @@ Pour repartir d'un topic vide (évite les doublons avant l'intégration) :
 MSYS_NO_PATHCONV=1 docker exec kafka /opt/kafka/bin/kafka-topics.sh --bootstrap-server localhost:29092 --delete --topic cloudpredict.metrics.raw
 docker compose up kafka-init
 ```
+## Envoi pour le Machine Learning (livrable 3)
+
+`--every 60` fragmente l'historique des disques. Pour le ML, utiliser la sélection par disque
+(même hash que `prepare_history.py`) :
+
+    python producer.py --file ../data/data_Q4_2025.zip --disk-percent 1 --start 2025-12-01 --end 2025-12-07 --limit 0
+
+Essai sans Kafka (`--dry-run`) : 24 088 messages, 3 449 disques, 7 jours.
+Envoi réel de contrôle : 100 messages, 0 erreur (offsets de 11 100 à 11 200).
+Champs vérifiés : date, serial_number, model, capacity_bytes et SMART 5, 9, 194, 197, 198 (raw et normalized).
+Le service `producer` de `docker-compose.yml` utilise encore `--every 60` : à adapter à l'intégration.
