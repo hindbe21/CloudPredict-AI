@@ -1,6 +1,8 @@
 services:
   spark-master:
-    image: apache/spark:3.5.7
+    image: cloudpredict-spark-ml:3.5.7-v1
+    build:
+      context: ./infra/spark
     hostname: spark-master
     command:
       - /opt/spark/bin/spark-class
@@ -17,12 +19,13 @@ services:
     volumes:
       - ./infra/spark:/opt/project/spark:ro
       - ./streaming:/opt/project/streaming:ro
+      - ./ml:/opt/project/ml:ro
       - ./batch:/opt/project/batch:ro
     networks:
       - cloudpredict-net
 
   spark-worker-1:
-    image: apache/spark:3.5.7
+    image: cloudpredict-spark-ml:3.5.7-v1
     hostname: spark-worker-1
     command:
       - /opt/spark/bin/spark-class
@@ -38,7 +41,7 @@ services:
       - cloudpredict-net
 
   spark-worker-2:
-    image: apache/spark:3.5.7
+    image: cloudpredict-spark-ml:3.5.7-v1
     hostname: spark-worker-2
     command:
       - /opt/spark/bin/spark-class
